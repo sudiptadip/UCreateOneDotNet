@@ -1,0 +1,26 @@
+﻿@model Category;
+
+<h1 class="text-center" >Create Category</h1>
+
+<div class="row justify-content-center" >
+    <form method="post" class="col-7" >
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input type="text" asp-for="Name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">          
+            <span asp-validation-for="Name" class="text-danger" ></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="DisplayOrder" ></label>
+            <input type="number" asp-for="DisplayOrder" class="form-control" id="exampleInputPassword1">
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-info text-white px-5 py-2">Submit</button>
+        <a asp-controller="Category" asp-action="Index"  class="btn btn-outline-secondary px-3 py-2">Back to Category</a>
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

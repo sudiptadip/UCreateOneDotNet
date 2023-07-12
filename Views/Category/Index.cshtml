@@ -1,0 +1,36 @@
+﻿@model List<Category>
+@if (TempData["success"] != null)
+{
+    <h2>@TempData["success"]</h2>
+}
+
+<h2 class="text-center" >Category Table</h2>
+<br />
+<div class="row justify-content-center mt-5" >
+<a asp-controller="Category" asp-action="Create" class="btn btn-dark px-4 py-2 col-3" >Create Category</a>
+<div class="col-10 justify-content-center" >
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Category Name</th>
+            <th scope="col">Display Order</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <th scope="row">@obj.Id</th>
+                <td>@obj.Name</td>
+                <td>@obj.DisplayOrder</td>
+                <td><a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-warning btn-sm" >Edit Category</a></td>
+                <td><a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger btn-sm" >Delete Category</a></td>               
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+</div>
